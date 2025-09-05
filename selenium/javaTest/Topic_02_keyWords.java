@@ -1,11 +1,11 @@
 package javaTest;
 
-public class Topic_01_dataType {
+public class Topic_02_keyWords {
     //Kieu du lieu nguyen thuy
     //char, number, byte, short, int, long, float, double, boolean
     char c = 'K';
     byte bNumber = 127;
-    String student = "Nguyen Van A";
     //Kieu du lieu tham chieu
     //String, Object/Class, Colection: List, set,quece
+
 }
