@@ -2,7 +2,6 @@ package webdriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,7 +16,7 @@ public class Topic_03_Locator {
         driver = new FirefoxDriver();
         driver.get("https://live.techpanda.org/index.php/customer/account/login/");
     }
-//Tu selenium 1/2/3/4 deu co 8 loai locator
+    //Tu selenium 1/2/3/4 deu co 8 loai locator
     //ID
     //Class/ClassName
     //Name
@@ -30,21 +29,21 @@ public class Topic_03_Locator {
     public void TC_01_ID() {
         //Cần tìm 1 element: findElement
         // Cần tìm nhiều element:findElements
-      driver.findElement(By.id("email"));
-      driver.findElement(By.id("search"));
+        driver.findElement(By.id("email"));
+        driver.findElement(By.id("search"));
     }
     @Test
     public void TC_02_Class() {
-    //Class chỉ truyền vào một phần nếu có khoảng trắng
-    //Có thể lấy hết nếu ko có khoảng trắng
-    driver.findElement(By.className("validate-email"));
-    driver.findElement(By.className("validate-password"));
+        //Class chỉ truyền vào một phần nếu có khoảng trắng
+        //Có thể lấy hết nếu ko có khoảng trắng
+        driver.findElement(By.className("validate-email"));
+        driver.findElement(By.className("validate-password"));
     }
     @Test
     public void TC_03_Name() {
-    driver.findElement(By.name("login[username]"));
-    driver.findElement(By.name("login[password]"));
-    driver.findElement(By.name("email"));
+        driver.findElement(By.name("login[username]"));
+        driver.findElement(By.name("login[password]"));
+        driver.findElement(By.name("email"));
     }
     @Test
     public void TC_04_TagName() {
@@ -60,8 +59,8 @@ public class Topic_03_Locator {
         driver.findElement(By.linkText("ORDERS AND RETURNS"));
         driver.findElement(By.linkText("SITE MAP"));
 
-        @Test
     }
+    @Test
     public void TC_06_Partial_LinkText() {
         //Dùng với đường link
         //Tương đối:lấy một phần text
@@ -84,8 +83,12 @@ public class Topic_03_Locator {
         //Css voi Name
         driver.findElement(By.cssSelector("input[name='login[username]']"));
         //Css voi TagName
-        driver.findElement(By.cssSelector("input"));
-    }//div[@class='account-login']
+        driver.findElements(By.cssSelector("input"));
+        //Css voi linkText
+        driver.findElement(By.cssSelector("a[href='http://live.techpanda.org/index.php/customer/account/']"));
+        //Css voi partialLink
+        driver.findElement(By.cssSelector("a[href*='/customer/account/']"));
+    }
     @Test
     public void TC_08_Xpath() {
 //Xpath format //tagname[@atribute='value']
@@ -94,10 +97,16 @@ public class Topic_03_Locator {
         //Xpath voi Class
         driver.findElement(By.xpath("//div[@class='account-login']"));
         //Xpath voi Name
-        driver.findElement(By.cssSelector("//input[@name='login[username]']"));
+        driver.findElement(By.xpath("//input[@name='login[username]']"));
         //Xpath voi TagName
-        driver.findElement(By.xpath("input"));
-    }
+        driver.findElements(By.xpath("//input"));
+        //xpath voi linkText
+        driver.findElement(By.xpath("//a[@href='http://live.techpanda.org/index.php/customer/account/']"));
+        driver.findElement(By.xpath("//a[(text()= 'My Account')]"));
+        //xpath voi partialLink
+        driver.findElement(By.xpath("//a[contains(@href,'/customer/account/')]"));
+        driver.findElement(By.xpath("//a[contains(text(),'My Account')]"));
+      }
 
     @AfterClass
     public void afterClass() {
